@@ -2,7 +2,7 @@ require "constants"
 
 Mario = {}
 
-function Mario:score()
+function Mario.score()
   -- return memory.readbyterange(0x07dd, 7)
   return table.concat({
       memory.readbyte(0x07dd)
@@ -16,12 +16,24 @@ function Mario:score()
   -- for k, v in pairs(score) do print(v) end
 end
 
-function Mario:is_ducking()
+function Mario.is_ducking()
   return memory.readbyte(0x0714) == 0x04
 end
 
-function Mario:state()
-  return memory.readbyte(0x0754)
+function Mario.is_big()
+  return memory.readbyte(0x0754) == 0
+end
+
+function Mario.is_small()
+  return memory.readbyte(0x0754) == 1
+end
+
+function Mario.set_big()
+  memory.writebyte(0x0754, 0)
+end
+
+function Mario.set_small()
+  memory.writebyte(0x0754, 1)
 end
 
 function Mario.is_facing_left()
@@ -32,13 +44,7 @@ function Mario.is_facing_right()
   return memory.readbyte(0x0003) == Direction.RIGHT
 end
 
-function Mario.set_state(st)
-  -- print("mss" .. (st or "no"))
-  st = st or 1
-  memory.writebyte(0x0754, st)
-end
-
-function Mario:power_up_state()
+function Mario.power_up_state()
   return memory.readbyte(0x0756)
 end
 
