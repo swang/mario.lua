@@ -69,9 +69,11 @@ function World.set_level_palette(level)
   end
 
 end
+
 function World.noir(state)
   memory.writebyte(0x0779, state and 0x1F or 0x1E)
 end
+
 function World.get_time()
   return memory.readbyte(0x07F8) * 100 + memory.readbyte(0x07F9) * 10 + memory.readbyte(0x07FA)
 end
