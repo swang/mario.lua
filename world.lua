@@ -31,13 +31,18 @@ function World.powerup_type()
   return ""
 end
 
--- set 0 to swim, so reverse numbers if state is true/false
-function World.set_swim(state)
-  if (state) then
-    memory.writebyte(0x0704, 0x01)
-  else
-    memory.writebyte(0x0704, 0x00)
-  end
+-- 0 enables swimming, 1 disables swimming
+
+function World.can_swim()
+  return (memory.readbyte(0x0773) == 0x00)
+end
+
+function World.disable_swimming()
+  memory.writebyte(0x0704, 0x01)
+end
+
+function World.enable_swimming()
+  memory.writebyte(0x0704, 0x00)
 end
 
 function World.set_bubbles(state)
