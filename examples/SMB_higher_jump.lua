@@ -28,13 +28,13 @@ while (true) do
     jumped_flag = false
     --if veloc > 0xff then
     --end
-  
+
   end
 
   if veloc > highest then
     highest = veloc
   end
-  
+
   -- gui.text(0, 80, table.val_to_str(input.read()) .. " " .. highest .. " ".. Mario.get_vertical_velocity() )
   -- gui.text(0, 80, tostring(jumped_flag) .. " ".. veloc)
   last_veloc = veloc

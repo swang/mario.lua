@@ -36,6 +36,6 @@ while (true) do
     -- print("changed", reset, World.get_level_palette(), current_world)
     reset = false
   end
-      
+
   FCEU.frameadvance()
 end

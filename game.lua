@@ -17,35 +17,21 @@ function Game.is_button_pressed(button)
   return bit.band(memory.readbyte(0x000A), BUTTON.A) ~= 0
 end
 
--- coord		= coord - 0x500;
--- 	if coord < 0 or coord >= 0x1A0 then
--- 		return false;
--- 	end;
-
--- 	local px	= (math.fmod(coord, 0x10) + math.floor(coord / 0xD0) * 0x10) * 0x10;
--- 	px			= px - math.fmod(smbdata['screenpos'], 0x200);
--- 	if px < 0 then
--- 		px		= px + 0x200;
--- 	end;
-
--- 	local py	= math.floor(math.fmod(coord, 0xD0) / 0x10);
--- 	returnval	= {x = px, y = py};
--- 	return returnval;
-
 function Game.ram2pixel(coord)
- 	local screenpos = memory.readbyte(0x071a) * 0x100 + memory.readbyte(0x071c);
-	coord = coord - 0x500;
-	if coord < 0 or coord >= 0x1A0 then
-		return false;
-	end;
+  local screenpos = memory.readbyte(0x071a) * 0x100 + memory.readbyte(0x071c)
+  coord = coord - 0x500
 
-	local px	= (math.fmod(coord, 0x10) + math.floor(coord / 0xD0) * 0x10) * 0x10;
-	px			= px - math.fmod(screenpos, 0x200);
-	if px < 0 then
-		px		= px + 0x200;
-	end;
+  if coord < 0 or coord >= 0x1A0 then
+    return false;
+  end;
 
-	local py	= math.floor(math.fmod(coord, 0xD0) / 0x10);
-	returnval	= {x = px, y = py};
-	return returnval;
+  local px = (math.fmod(coord, 0x10) + math.floor(coord / 0xD0) * 0x10) * 0x10
+  px = px - math.fmod(screenpos, 0x200)
+  if px < 0 then
+    px = px + 0x200;
+  end;
+
+  local py = math.floor(math.fmod(coord, 0xD0) / 0x10)
+
+  return {x = px, y = py}
 end

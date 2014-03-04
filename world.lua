@@ -3,21 +3,20 @@ require "constants"
 World = {}
 
 function World.get_num_enemies()
-  return tonumber(memory.readbyte(0x000F)) + 
-  tonumber(memory.readbyte(0x0010)) + 
-  tonumber(memory.readbyte(0x0011)) + 
-  tonumber(memory.readbyte(0x0012)) + 
-  tonumber(memory.readbyte(0x0013))
+  return tonumber(memory.readbyte(0x000F)) +
+    tonumber(memory.readbyte(0x0010)) +
+    tonumber(memory.readbyte(0x0011)) +
+    tonumber(memory.readbyte(0x0012)) +
+    tonumber(memory.readbyte(0x0013))
 end
 
 function World.powerup_available()
-  -- No = 0x00
-  -- Yes = 0x2E
+  -- No = 0x00, Yes = 0x2E
   return memory.readbyte(0x001B) == 0x2E
 end
 
 function World.powerup_type()
-  -- location in memory of what powertype it is
+  -- location in memory of what powerup type it is
   -- because mushroom is 0, and it defaults to 0
   -- you also have to check to see if there is a powerup
   -- on the screen
@@ -69,7 +68,7 @@ function World.noir(state)
   memory.writebyte(0x0779, state and 0x1F or 0x1E)
 end
 function World.get_time()
-  return memory.readbyte(0x07F8) * 100 + memory.readbyte(0x07F9) * 10 + memory.readbyte(0x07FA) 
+  return memory.readbyte(0x07F8) * 100 + memory.readbyte(0x07F9) * 10 + memory.readbyte(0x07FA)
 end
 
 function World.set_time(number)
@@ -106,7 +105,7 @@ function World.get_enemy_positions()
       y1 = memory.readbyte(0x04bd),
       x2 = memory.readbyte(0x04be),
       y2 = memory.readbyte(0x04bf)
-    },        
+    },
     {
       x1 = memory.readbyte(0x04c0),
       y1 = memory.readbyte(0x04c1),

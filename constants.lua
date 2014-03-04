@@ -15,18 +15,21 @@ Direction = readonlytable {
 
 BUTTON_A = 0x80
 BUTTON_B = 0x40
+
 BUTTON = {
   A = 0x80,
   B = 0x40,
   UP = 0x80,
   DOWN = 0x40
 }
+
 POWERUP = {
   MUSHROOM = 0,
   FLOWER = 1,
   STAR = 2,
   ONEUP = 3
 }
+
 LEVEL_PALETTE = {
   NORMAL = 0,
   UNDERWATER = 1,

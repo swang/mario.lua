@@ -49,12 +49,12 @@ while(true) do
   gui.drawbox(pos.x1, pos.y1, pos.x2, pos.y2, nil, 'blue')
 
   mouse = input.get()
-  
+
   if mouse.leftclick then
     if Mario.in_position(mouse.xmouse, mouse.ymouse) then
       clicked = true
     end
-    
+
     if clicked then
       Mario.set_position(mouse.xmouse, mouse.ymouse)
     end
@@ -63,6 +63,6 @@ while(true) do
   end
 
   -- gui.text(0, 20, table.val_to_str(input.read()))
-  -- gui.text(0, 30, tostring(pos.x1) .. " " ..  tostring(pos.y1) .. " " ..   tostring(pos.x2).. " " .. tostring(pos.y2))  
+  -- gui.text(0, 30, tostring(pos.x1) .. " " ..  tostring(pos.y1) .. " " ..   tostring(pos.x2).. " " .. tostring(pos.y2))
   FCEU.frameadvance()
 end
