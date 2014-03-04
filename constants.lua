@@ -13,24 +13,24 @@ Direction = readonlytable {
   LEFT = 2
 }
 
-BUTTON_A = 0x80
-BUTTON_B = 0x40
+-- BUTTON_A = 0x80
+-- BUTTON_B = 0x40
 
-BUTTON = {
+BUTTON = readonlytable {
   A = 0x80,
   B = 0x40,
   UP = 0x80,
   DOWN = 0x40
 }
 
-POWERUP = {
+POWERUP = readonlytable {
   MUSHROOM = 0,
   FLOWER = 1,
   STAR = 2,
   ONEUP = 3
 }
 
-LEVEL_PALETTE = {
+LEVEL_PALETTE = readonlytable {
   NORMAL = 0,
   UNDERWATER = 1,
   NIGHT = 2,
