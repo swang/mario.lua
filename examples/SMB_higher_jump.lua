@@ -12,6 +12,7 @@ local jumped_flag = false
 while (true) do
   World.set_time(999) --> this just freezes time to 998 (999 with 1 sec runoff)
   veloc = Mario.get_vertical_velocity()
+
   if not Game.is_button_pressed(BUTTON.A) then
     jumped_flag = false
   end
