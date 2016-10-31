@@ -1,6 +1,8 @@
-require 'mario'
-require 'game'
-require 'world'
+package.path =  "../?.lua;" .. package.path
+
+require "../mario"
+require "../game"
+require "../world"
 
 local last_veloc = 0x00
 local highest = 0

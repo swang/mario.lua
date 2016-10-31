@@ -1,4 +1,7 @@
-require "world"
+package.path =  "../?.lua;" .. package.path
+
+require "../world"
+
 
 World.set_level_palette(1)
 while (true) do

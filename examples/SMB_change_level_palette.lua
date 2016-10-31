@@ -1,4 +1,5 @@
-require "world"
+package.path =  "../?.lua;" .. package.path
+require "../world"
 
 local current_world = 0x00 -- LEVEL_PALETTE.NORMAL
 

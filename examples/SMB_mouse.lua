@@ -1,5 +1,7 @@
-require "mario"
-require "world"
+package.path =  "../?.lua;" .. package.path
+
+require "../mario"
+require "../world"
 
 function table.val_to_str ( v )
   if "string" == type( v ) then

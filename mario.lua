@@ -1,3 +1,5 @@
+package.path =  "../?.lua;" .. package.path
+
 require "constants"
 
 Mario = {}
