@@ -39,11 +39,11 @@ function World.can_swim()
 end
 
 function World.disable_swimming()
-  memory.writebyte(0x0704, 0x01)
+  memory.writebyte(0x0704, 0x00)
 end
 
 function World.enable_swimming()
-  memory.writebyte(0x0704, 0x00)
+  memory.writebyte(0x0704, 0x01)
 end
 
 function World.set_bubbles(state)
