@@ -2,7 +2,7 @@ require "constants"
 
 Mario = {}
 
-function Mario.score()
+function Mario:score()
   -- return memory.readbyterange(0x07dd, 7)
   return table.concat({
       memory.readbyte(0x07dd)
@@ -13,11 +13,14 @@ function Mario.score()
     , memory.readbyte(0x07e2)
     , memory.readbyte(0x07e3)
   })
-  -- for k, v in pairs(score) do print(v) end
 end
 
 function Mario.is_ducking()
   return memory.readbyte(0x0714) == 0x04
+end
+
+function Mario.state()
+  return memory.readbyte(0x0754)
 end
 
 function Mario.is_big()
@@ -44,7 +47,12 @@ function Mario.is_facing_right()
   return memory.readbyte(0x0003) == Direction.RIGHT
 end
 
-function Mario.power_up_state()
+function Mario.set_state(st)
+  st = st or 1
+  memory.writebyte(0x0754, st)
+end
+
+function Mario:power_up_state()
   return memory.readbyte(0x0756)
 end
 
@@ -80,7 +88,7 @@ end
 
 function Mario.set_position(x, y)
   -- 0x071A -- first screen number
-  -- 0x071B -- second` screen number
+  -- 0x071B -- second screen number
 
   -- 0x071C -- offset of left most location on the screen
   -- 0x03AD -- offset of amount moved past 0x071C

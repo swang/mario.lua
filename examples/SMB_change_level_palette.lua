@@ -1,7 +1,7 @@
 require "world"
 
 local current_world = 0x00 -- LEVEL_PALETTE.NORMAL
--- World.set_level_palette(current_world)
+
 while (true) do
   key = input.get()
   reset = false

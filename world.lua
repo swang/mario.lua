@@ -32,7 +32,6 @@ function World.powerup_type()
 end
 
 -- 0 enables swimming, 1 disables swimming
-
 function World.can_swim()
   return (memory.readbyte(0x0773) == 0x00)
 end
@@ -67,7 +66,6 @@ function World.set_level_palette(level)
   else
     memory.writebyte(0x0773, level)
   end
-
 end
 
 function World.noir(state)
