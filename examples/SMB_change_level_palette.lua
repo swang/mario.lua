@@ -1,9 +1,14 @@
 package.path =  "../?.lua;" .. package.path
+
 require "../world"
 
-local current_world = 0x00 -- LEVEL_PALETTE.NORMAL
+local current_world = 0x00 --> LEVEL_PALETTE.NORMAL
 
 while (true) do
+  gui.text(110, 208, "T - Normal, Y - Underwater")
+  gui.text(110, 215, "U - Night, H - Underground")
+  gui.text(110, 222, "J - Castle")
+
   key = input.get()
   reset = false
 
